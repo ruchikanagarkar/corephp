@@ -13,8 +13,14 @@ ini_set('display_errors', 1);
 </head>
 
 <?php
+require_once('init.php');
+
+$dbpdo = new Dbpdo();
+$users = $dbpdo->getUsers();
+echo "<pre>";print_r($users); echo "</pre>";
+
 if(isset($_POST['submit'])){
-	require_once('init.php');
+	//require_once('init.php');
 
 	$userObj = new User();
 	if(isset($_GET['id'])){
@@ -32,6 +38,8 @@ if(isset($_POST['submit'])){
 		echo 'There has been an error';
 	}
 }
+
+
 ?>
 <body>
 	<form action="" method="post">

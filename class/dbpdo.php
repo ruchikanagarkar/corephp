@@ -6,7 +6,7 @@ class Dbpdo
     public $hostname = 'localhost';
     public $username = 'username';
     public $password = 'password';
-    public $database = 'dbname';
+    public $database = 'database';
     public $conn;
 
     public function __construct()
@@ -51,6 +51,13 @@ class Dbpdo
         // use exec() because no results are returned
         return $this->conn->exec($sql);
 
+    }
+
+    public function getUsers(){
+        $sql = 'SELECT * FROM user';
+        $query = $this->conn->query($sql);
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 }
 
