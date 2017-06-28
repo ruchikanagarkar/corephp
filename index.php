@@ -22,11 +22,11 @@ if(isset($_POST['submit'])){
 	}
 	$userObj->setName($_POST['name']);
 
-	$db = new Db();
+	$db = new Dbpdo(); //new Db();
 	$saved = $db->save($userObj);
 
 	if($saved){
-		echo 'user Saved';
+		echo 'User Saved';
 	}
 	else {
 		echo 'There has been an error';
